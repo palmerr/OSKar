@@ -1,0 +1,149 @@
+﻿from PyQt5 import QtGui
+from PyQt5.QtWidgets import QApplication, QRadioButton, QWidget, QWizard, QVBoxLayout, QPushButton, QWizardPage, QLabel, QPushButton, QLineEdit, QTextEdit
+from PyQt5 import uic
+from PyQt5.QtGui import QPixmap
+import PyQt5.QtCore
+import sys
+import time
+
+
+class Window(QWizard):
+    def __init__(self):
+        super().__init__()
+
+        self.page1 = self.createIntroPage()
+        self.page2 = self.createUserPage()
+        self.page3 = self.createCompanyPage()
+        self.page4 = self.createPPage()
+        self.page5 = self.createFinishPage()
+
+        self.title = "OSKar V1.0"
+        self.top = 200
+        self.left = 500
+        self.width = 500
+        self.height = 400
+
+        self.InitWindow()
+
+    def createIntroPage(self):
+        page = QWizardPage()
+        page.setTitle("Was ist \"OSKar\"")
+        label = QLabel("OSKar ist ein Programm zur Druchführung der " \
+                        "Messtechnischen Kontrolle (MTK) " \
+                        "von Nicht- invasiven Blutdruckmessgeräten! " \
+                        "Das Programm wird Sie Schritt für Schritt" \
+                        "durch den kompletten Prüfablauf führen. " \
+                        "!! WICHTIG!! Bevor Sie beginnen können drucken Sie sich bitte " \
+                        "das MTK-Protokoll in der Version 1.0 aus und verwenden dieses " \
+                        "als Prüfprotokoll!")
+        label.setWordWrap(True)
+
+        layout = QVBoxLayout()
+        layout.addWidget(label)
+        page.setLayout(layout)
+
+        return page
+
+    def InitWindow(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+        self.addPage(self.page1)
+        self.addPage(self.page2)
+        self.addPage(self.page3)
+        self.addPage(self.page4)
+        self.addPage(self.page5)
+
+        # button
+        self.button = self.findChild(QPushButton, 'btnInsert') # find the button
+        self.button.clicked.connect(self.btnInsertClicked)
+
+        # textarea
+        self.txtArea = self.findChild(QTextEdit, 'txtArea')
+
+        # textbox
+        self.txtBox = self.findChild(QLineEdit, 'txtInsert')
+        # label
+        self.label = self.findChild(QLabel, 'lblInsert')
+
+        self.txtInsertName = self.findChild(QLineEdit, 'txtInsertName')
+
+
+
+
+        self.show()
+
+    def createFinishPage(self):
+        page = QWizardPage()
+        page.setTitle("Introduction")
+
+        label = QLabel("This is the last page.")
+        label.setWordWrap(True)
+
+        layout = QVBoxLayout()
+        layout.addWidget(label)
+        page.setLayout(layout)
+
+        return page
+
+    def createUserPage(self):
+        page = uic.loadUi('userpage.ui')
+
+        # register field for disabling next button
+        txtInsertName = page.findChild(QLineEdit, 'txtInsertName')
+        page.registerField('txtInsertName*',txtInsertName)
+
+        txtInsertVorname = page.findChild(QLineEdit, 'txtInsertVorname')
+        page.registerField('txtInsertVorname*',txtInsertVorname)
+
+        txtInsertKuerzel = page.findChild(QLineEdit, 'txtInsertKuerzel')
+        page.registerField('txtInsertKuerzel*',txtInsertKuerzel)
+
+
+        return page
+
+    def createCompanyPage(self):
+        page = uic.loadUi('companypage.ui')
+
+        # register field for disabling next button
+        txtInsertName = page.findChild(QLineEdit, 'txtInsertUnternehmen')
+        page.registerField('txtInsertUnternehmen*',txtInsertName)
+
+        txtInsertVorname = page.findChild(QLineEdit, 'txtInsertStrasse')
+        page.registerField('txtInsertStrasse*',txtInsertVorname)
+
+        txtInsertKuerzel = page.findChild(QLineEdit, 'txtInsertHausnummer')
+        page.registerField('txtInsertHausnummer*',txtInsertKuerzel)
+
+        txtInsertVorname = page.findChild(QLineEdit, 'txtInsertPostleitzahl')
+        page.registerField('txtInsertPostleitzahl*',txtInsertVorname)
+
+        txtInsertKuerzel = page.findChild(QLineEdit, 'txtInsertOrt')
+        page.registerField('txtInsertOrt*',txtInsertKuerzel)
+
+        return page
+
+    def createPPage(self):
+        page = uic.loadUi('mainwindow.ui')
+        return page
+
+    # button action
+    def btnInsertClicked(self):
+        strText = self.txtBox.text()
+        print(strText)
+        self.txtArea.append(strText)
+        self.label.setText(strText)
+
+    def completeUserPage(self):
+        self.completeChanged(self)
+
+    def isComplete(self):
+        if(self.txtInsertName.text() == ''):
+            return False
+        else:
+            return True
+
+
+App = QApplication(sys.argv)
+window = Window()
+sys.exit(App.exec())
