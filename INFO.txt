@@ -1,0 +1,1 @@
+#print(self.view.txtBoxO.setText("Klick")) = setzt einen Text in eine Textbox

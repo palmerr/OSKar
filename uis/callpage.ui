@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWizardPage" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>477</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>images/logo.jpg</normaloff>images/logo.jpg</iconset>
+  </property>
+  <property name="toolTipDuration">
+   <number>-2</number>
+  </property>
+  <property name="inputMethodHints">
+   <set>Qt::ImhNone</set>
+  </property>
+  <widget class="QWidget" name="centralWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>480</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="lbCall">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>500</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Abfrage Temperatur und Luftfeuchte:&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;Sollten die Umgebungstemperatur und die Relative Luftfeuchte nicht&lt;br/&gt;im Tolleranzbereich sein, ist der Button &amp;quot;Next&amp;quot; gesperrt.&lt;br/&gt;In diesem Fall warten Sie Bitte ca. eine halbe Stunde.&lt;br/&gt;&lt;br/&gt;Gründe dafür können folgende sein:&lt;br/&gt;&amp;gt; die Umgebungstemperatur liegt nicht zwischen 10 °C bis 40 °C&lt;br/&gt;&amp;gt; die Relative Luftfeuchte liegt nicht zwischen 15 % bis 85 %&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdTemp">
+    <property name="geometry">
+     <rect>
+      <x>86</x>
+      <y>230</y>
+      <width>64</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdHumi">
+    <property name="geometry">
+     <rect>
+      <x>314</x>
+      <y>230</y>
+      <width>64</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbTemp1">
+    <property name="geometry">
+     <rect>
+      <x>153</x>
+      <y>230</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> °C</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbHumi1">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>230</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> %</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbHumi2">
+    <property name="geometry">
+     <rect>
+      <x>296</x>
+      <y>200</y>
+      <width>151</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Relative Luftfeuchte</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbTemp2">
+    <property name="geometry">
+     <rect>
+      <x>55</x>
+      <y>200</y>
+      <width>191</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Umgebungstemperatur</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>10</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>5</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
