@@ -103,10 +103,10 @@ class View(QWizard):
         page.setTitle("Was ist \"OSKar\"")
         label = QLabel("OSKar ist ein Programm zur Druchführung der " \
                         "Messtechnischen Kontrolle (MTK) " \
-                        "von Nicht- invasiven Blutdruckmessgeräten! " \
+                        "von Nicht- invasiven Blutdruckmessgeräten!\n" \
                         "Das Programm wird Sie Schritt für Schritt " \
-                        "durch den kompletten Prüfablauf führen.                       " \
-                        "!!WICHTIG!! Bevor Sie beginnen drucken Sie sich bitte " \
+                        "durch den kompletten Prüfablauf führen.\n" \
+                        "!!WICHTIG!!\nBevor Sie beginnen drucken Sie sich bitte " \
                         "das Prüfprotokoll MTK NIBP V1.0 auf der nächsten Seite aus " \
                         "und verwenden dieses als Vorlage!")
         label.setWordWrap(True)
@@ -118,11 +118,11 @@ class View(QWizard):
         return page
 
     def createProtocolPage(self):
-        page = uic.loadUi('../uis/protocolpage.ui')
+        page = uic.loadUi('./uis/protocolpage.ui')
         return page
 
     def createUserPage(self):
-        page = uic.loadUi('../uis/userpage.ui')
+        page = uic.loadUi('./uis/userpage.ui')
 
         # register field for disabling next button
         txtBoxN = page.findChild(QLineEdit, 'txtInsertName')
@@ -152,15 +152,15 @@ class View(QWizard):
         return page
 
     def createCallPage(self):
-        page = uic.loadUi('../uis/callpage.ui')
+        page = uic.loadUi('./uis/callpage.ui')
         return page
 
-    def createSummaryPage(self):
-        page = uic.loadUi('../uis/summarypage.ui')
+    def createSummaryPage(self):.
+        page = uic.loadUi('./uis/summarypage.ui')
         return page
 
     def createExamPage(self):
-        page = uic.loadUi('../uis/exampage.ui')
+        page = uic.loadUi('./uis/exampage.ui')
         return page
 
     def createFinishPage(self):
