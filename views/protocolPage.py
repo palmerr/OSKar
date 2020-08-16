@@ -5,6 +5,8 @@ Created on 21.04.2020
 '''
 from PyQt5 import uic
 from PyQt5.Qt import QWizardPage, QLabel, QVBoxLayout, QLineEdit, QPushButton
+import webbrowser
+
 
 class protocolpage(QWizardPage):
     '''
@@ -17,10 +19,15 @@ class protocolpage(QWizardPage):
         super().__init__()
         self.controller = controller
 
-        page = uic.loadUi('/home/motze/ProjektX_v1/classFertig/uis/protocolpage.ui')
+        self.page = uic.loadUi('./uis/protocolpage.ui')
         #return page
 
-        self.btnProtocol = self.findChild(QPushButton, 'btnProtocol')
-        #self.btnProtocol.clicked.connect(self.controller.btnProtocolClicked)
+        self.btnProtocol = self.page.findChild(QPushButton, 'btnProtocol')
+        self.btnProtocol.clicked.connect(self.btnProtocolClicked)
 
-        return QWizardPage.initializePage(self) #page
+    def btnProtocolClicked(self, button):
+        webbrowser.open_new(r'./temp/javascript-klassen.pdf')
+
+    def validatePage():
+        print("validatePage")
+        return False

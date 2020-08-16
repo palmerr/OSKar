@@ -10,7 +10,7 @@ from PyQt5 import uic
 from PyQt5.QtGui import QPixmap
 import PyQt5.QtCore
 import os, sys, time
-
+from views import protocolPage
 
 class View(QWizard):
     '''
@@ -25,7 +25,7 @@ class View(QWizard):
         self.controller = controller
 
         self.page1 = self.createIntroPage()
-        self.page2 = self.createProtocolPage()
+        self.page2 = protocolPage.protocolpage(controller)
         self.page3 = self.createUserPage()
         self.page4 = self.createCompanyPage()
         self.page5 = self.createCallPage()
@@ -46,20 +46,13 @@ class View(QWizard):
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         self.addPage(self.page1)
-        self.addPage(self.page2)
+        self.addPage(self.page2.page)
         self.addPage(self.page3)
         self.addPage(self.page4)
         self.addPage(self.page5)
         self.addPage(self.page6)
         self.addPage(self.page7)
         self.addPage(self.page8)
-
-
-
-        # button protocolpage
-        # add action to button
-        self.btnProtocol = self.findChild(QPushButton, 'btnProtocol')
-        self.btnProtocol.clicked.connect(self.controller.btnProtocolClicked)
 
         # textboxen userpage
         # add action to textbox
@@ -100,13 +93,13 @@ class View(QWizard):
 
     def createIntroPage(self):
         page = QWizardPage()
-        page.setTitle("Was ist \"OSKar\"")
+        page.setTitle("Was ist \"OSKar\"?")
         label = QLabel("OSKar ist ein Programm zur Druchführung der " \
                         "Messtechnischen Kontrolle (MTK) " \
-                        "von Nicht- invasiven Blutdruckmessgeräten! " \
+                        "von Nicht- invasiven Blutdruckmessgeräten!\n" \
                         "Das Programm wird Sie Schritt für Schritt " \
-                        "durch den kompletten Prüfablauf führen.                       " \
-                        "!!WICHTIG!! Bevor Sie beginnen drucken Sie sich bitte " \
+                        "durch den kompletten Prüfablauf führen.\n\n" \
+                        "!!WICHTIG!!\nBevor Sie beginnen drucken Sie sich bitte " \
                         "das Prüfprotokoll MTK NIBP V1.0 auf der nächsten Seite aus " \
                         "und verwenden dieses als Vorlage!")
         label.setWordWrap(True)
@@ -117,12 +110,13 @@ class View(QWizard):
 
         return page
 
-    def createProtocolPage(self):
-        page = uic.loadUi('../uis/protocolpage.ui')
-        return page
+#    def createProtocolPage(self):
+#        print("createProtocolPage")
+#        page = uic.loadUi('./uis/protocolpage.ui')
+#        return page
 
     def createUserPage(self):
-        page = uic.loadUi('../uis/userpage.ui')
+        page = uic.loadUi('./uis/userpage.ui')
 
         # register field for disabling next button
         txtBoxN = page.findChild(QLineEdit, 'txtInsertName')
@@ -135,7 +129,7 @@ class View(QWizard):
         return page
 
     def createCompanyPage(self):
-        page = uic.loadUi('../uis/companypage.ui')
+        page = uic.loadUi('./uis/companypage.ui')
 
         # register field for disabling next button
         txtBoxU = page.findChild(QLineEdit, 'txtInsertUnternehmen')
@@ -152,15 +146,15 @@ class View(QWizard):
         return page
 
     def createCallPage(self):
-        page = uic.loadUi('../uis/callpage.ui')
+        page = uic.loadUi('./uis/callpage.ui')
         return page
 
     def createSummaryPage(self):
-        page = uic.loadUi('../uis/summarypage.ui')
+        page = uic.loadUi('./uis/summarypage.ui')
         return page
 
     def createExamPage(self):
-        page = uic.loadUi('../uis/exampage.ui')
+        page = uic.loadUi('./uis/exampage.ui')
         return page
 
     def createFinishPage(self):
