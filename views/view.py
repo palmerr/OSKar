@@ -10,6 +10,7 @@ from PyQt5 import uic
 from PyQt5.QtGui import QPixmap
 import PyQt5.QtCore
 import os, sys, time
+from views import introPage
 from views import protocolPage
 
 class View(QWizard):
@@ -22,9 +23,11 @@ class View(QWizard):
         Constructor
         '''
         super().__init__()
+        self.IndependentPages=1
+
         self.controller = controller
 
-        self.page1 = self.createIntroPage()
+        self.page1 = introPage.intropage(controller)
         self.page2 = protocolPage.protocolpage(controller)
         self.page3 = self.createUserPage()
         self.page4 = self.createCompanyPage()
@@ -45,7 +48,7 @@ class View(QWizard):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        self.addPage(self.page1)
+        self.addPage(self.page1.page)
         self.addPage(self.page2.page)
         self.addPage(self.page3)
         self.addPage(self.page4)
@@ -90,30 +93,6 @@ class View(QWizard):
         self.label = self.findChild(QLabel, 'lblInsert')
 
         self.show()
-
-    def createIntroPage(self):
-        page = QWizardPage()
-        page.setTitle("Was ist \"OSKar\"?")
-        label = QLabel("OSKar ist ein Programm zur Druchführung der " \
-                        "Messtechnischen Kontrolle (MTK) " \
-                        "von Nicht- invasiven Blutdruckmessgeräten!\n" \
-                        "Das Programm wird Sie Schritt für Schritt " \
-                        "durch den kompletten Prüfablauf führen.\n\n" \
-                        "!!WICHTIG!!\nBevor Sie beginnen drucken Sie sich bitte " \
-                        "das Prüfprotokoll MTK NIBP V1.0 auf der nächsten Seite aus " \
-                        "und verwenden dieses als Vorlage!")
-        label.setWordWrap(True)
-
-        layout = QVBoxLayout()
-        layout.addWidget(label)
-        page.setLayout(layout)
-
-        return page
-
-#    def createProtocolPage(self):
-#        print("createProtocolPage")
-#        page = uic.loadUi('./uis/protocolpage.ui')
-#        return page
 
     def createUserPage(self):
         page = uic.loadUi('./uis/userpage.ui')
@@ -169,3 +148,15 @@ class View(QWizard):
         page.setLayout(layout)
 
         return page
+
+    def validateCurrentPage(self):
+        print("view.validateCurrentPage")
+        curPage = self.currentPage()
+        if curPage.pageID == 1:
+            print(">  Intro Page")
+            # call here function to handle page 1
+        elif curPage.pageID == 2:
+            print(">  Protocol Page")
+            # call here function to handle page 2
+
+        return True
