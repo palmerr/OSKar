@@ -42,9 +42,9 @@ class Controller(object):
         pass
 
     def getTemp(self):
-        temp1 = classTemp.clsTemp(file ='../temp/27-00044a1f53fa/w1_slave', offset = "0.0")
-        temp2 = classTemp.clsTemp(file ='../temp/28-00044a1f53fa/w1_slave', offset = "0.0")
-        temp3 = classTemp.clsTemp(file ='../temp/29-00044a1f53fa/w1_slave', offset = "0.0")
+        temp1 = classTemp.clsTemp(file ='temp/27-00044a1f53fa/w1_slave', offset = "0.0")
+        temp2 = classTemp.clsTemp(file ='temp/28-00044a1f53fa/w1_slave', offset = "0.0")
+        temp3 = classTemp.clsTemp(file ='temp/29-00044a1f53fa/w1_slave', offset = "0.0")
 
         #TempSensor1
         messdaten = temp1.getTemp()
@@ -102,7 +102,7 @@ class Controller(object):
         return temp
 
     def getHumi(self):
-        humi = classHumi.clsHumi(sensor = '/home/motze/ProjektX/classFertig/temp/humidity/humidity', gpiopin = 25, offset = 0.0)
+        humi = classHumi.clsHumi(sensor = 'temp/humidity/humidity', gpiopin = 25, offset = 0.0)
 
         #HumiSensor
         messdaten = float(humi.getHumi())

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWizardPage" name="Form">
+   <property name="windowModality">
+    <enum>Qt::WindowModal</enum>
+   </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>KacstLetter</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Was ist &quot;OSKar&quot;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>281</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OSKar ist ein Programm zur Druchführung der Messtechnischen Kontrolle (MTK) von Nicht- invasiven Blutdruckmessgeräten! Das Programm wird Sie Schritt für Schritt durch den kompletten Prüfablauf führen. !!WICHTIG!! Bevor Sie beginnen drucken Sie sich bitte das Prüfprotokoll MTK NIBP V1.0 auf der nächsten Seite aus und verwenden dieses als Vorlage! </string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
