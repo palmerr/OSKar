@@ -123,3 +123,10 @@ class Controller(object):
         fullHumi = '%6.0f' % floathumi
         self.view.lcdHumi.display(fullHumi)
         return floathumi
+
+    def introPage(self, page):
+        print("Controller: Intropage")
+        print("Page ID: " + str(page.pageID))
+    def protocolPage(self, page):
+        print("Controller: Controllerpage")
+        print("Page ID: " + str(page.pageID))

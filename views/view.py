@@ -150,13 +150,12 @@ class View(QWizard):
         return page
 
     def validateCurrentPage(self):
-        print("view.validateCurrentPage")
+        print("view: validateCurrentPage")
         curPage = self.currentPage()
         if curPage.pageID == 1:
-            print(">  Intro Page")
-            # call here function to handle page 1
+            print("> Next button on Intro Page")
+            self.controller.introPage(curPage)
         elif curPage.pageID == 2:
-            print(">  Protocol Page")
-            # call here function to handle page 2
-
+            print("> Next button on Protocol Page")
+            self.controller.protocolPage(curPage)
         return True

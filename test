@@ -1,0 +1,16 @@
+20-09-29 18:09:00
+cpu  155808 39 22804 734177 4514 0 2735 0 0 0
+cpu0 78274 15 11332 368335 2364 0 822 0 0 0
+cpu1 77534 24 11472 365841 2149 0 1913 0 0 0
+Dateisystem    1K-Blöcke   Benutzt Verfügbar Verw% Eingehängt auf
+udev             1530156         0   1530156    0% /dev
+tmpfs             308460     35772    272688   12% /run
+/dev/sda1      100622392  40532892  54935148   43% /
+tmpfs            1542284     46560   1495724    4% /dev/shm
+tmpfs               5120         0      5120    0% /run/lock
+tmpfs            1542284         0   1542284    0% /sys/fs/cgroup
+roland.palmer  486858800 420447716  66411084   87% /media/windows
+tmpfs             308456        16    308440    1% /run/user/1000
+              total        used        free      shared  buff/cache   available
+Mem:        3084572     2420736       96952       86092      566884      412528
+Swap:       2095100       99312     1995788
